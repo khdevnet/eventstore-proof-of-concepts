@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RuntimeFrameworkVersion>2.1</RuntimeFrameworkVersion>
+    <NETStandardImplicitPackageVersion>2.1</NETStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Domain\Transactions\Commands\**" />
+    <Compile Remove="Views\Accounts\AllAccountsSummary\**" />
+    <Compile Remove="Views\Accounts\Handlers\**" />
+    <EmbeddedResource Remove="Domain\Transactions\Commands\**" />
+    <EmbeddedResource Remove="Views\Accounts\AllAccountsSummary\**" />
+    <EmbeddedResource Remove="Views\Accounts\Handlers\**" />
+    <None Remove="Domain\Transactions\Commands\**" />
+    <None Remove="Views\Accounts\AllAccountsSummary\**" />
+    <None Remove="Views\Accounts\Handlers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Domain\Accounts\Handlers\AccountCommandHandler.cs" />
+    <Compile Remove="Events\IEventHandler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Domain\Transactions\Commands\MakeTransfer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Marten" Version="3.0.1" />
+    <PackageReference Include="MediatR" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\Accounts\Handlers\" />
+  </ItemGroup>
+
+</Project>
